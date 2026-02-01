@@ -28,11 +28,7 @@
             {{ if gt (len $posts) 5 }}
             <p>
                 {{/* Link to /posts/ page to show all posts */}}
-                {{- if eq .Lang "en" -}}
-                <a href="/posts/">{{ T "home.see_all_posts" }}</a>
-                {{- else -}}
-                <a href="/{{ .Lang }}/posts/">{{ T "home.see_all_posts" }}</a>
-                {{- end -}}
+                <a href="{{ "posts" | relLangURL }}">{{ T "home.see_all_posts" }}</a>
             </p>
             {{ end }}
         </main>

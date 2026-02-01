@@ -1,4 +1,4 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://dexcodemobile.github.io/dex.ai-blog/'
 title = "Dexter's AI Blog"
 theme = "BlogAwesome"
 defaultContentLanguage = "en"
