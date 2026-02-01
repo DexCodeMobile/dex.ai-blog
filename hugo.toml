@@ -52,7 +52,7 @@ ignoreErrors = ["additional-script-loading-error"]
 
 [Languages.en.params.author]
   intro = "Dexter's AI Blog"
-  name = "Dexter Kim"
+  name = "Dexter's AI Blog"
   description = "Exploring AI development, tools, and product strategies"
 
 ############################## Korean Language ################################
@@ -89,5 +89,5 @@ ignoreErrors = ["additional-script-loading-error"]
 
 [Languages.ko.params.author]
   intro = "Dexter의 AI 블로그"
-  name = "김덱스터"
+  name = "Dexter의 AI 블로그"
   description = "AI 개발, 도구 및 제품 전략 탐구"
