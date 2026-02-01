@@ -1,11 +1,7 @@
 <div class="navbar" role="navigation">
     <nav class="menu" aria-label="Main Navigation">
         {{- /* 현재 언어의 홈페이지로 이동 */ -}}
-        {{- if eq .Lang "en" -}}
-            <a href="/" class="logo">
-        {{- else -}}
-            <a href="/{{ .Lang }}/" class="logo">
-        {{- end -}}
+        <a href="{{ "" | relLangURL }}" class="logo">
             {{ partial "svgs/home.svg" (dict "height" 25 "width" 25) . }}
         </a>
         <input type="checkbox" id="menu-trigger" class="menu-trigger" />
