@@ -1,0 +1,27 @@
+## HOME ##
+- id: "home.home"
+  translation: "홈"
+  
+- id: "home.recent_posts"
+  translation: "최근 포스트"
+
+- id: "home.see_all_posts"
+  translation: "모든 포스트 보기"
+
+## SINGLE ##
+- id: "single.table_of_contents"
+  translation: "목차"
+
+## FOOTER ##
+- id: "footer.go_to_top"
+  translation: "맨 위로"
+
+- id: "footer.disclaimer"
+  translation: "Powered by <a href=\"https://github.com/hugo-sid/hugo-blog-awesome\" target=\"_blank\" rel=\"noopener\">Hugo blog awesome</a>."
+
+## ERRORS ##
+- id: "errors.404"
+  translation: "404 NOT FOUND"
+
+- id: "errors.404_description"
+  translation: "요청하신 페이지를 찾을 수 없습니다."

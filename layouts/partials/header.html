@@ -1,0 +1,70 @@
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        {{- /* 현재 언어의 홈페이지로 이동 */ -}}
+        {{- if eq .Lang "en" -}}
+            <a href="/" class="logo">
+        {{- else -}}
+            <a href="/{{ .Lang }}/" class="logo">
+        {{- end -}}
+            {{ partial "svgs/home.svg" (dict "height" 25 "width" 25) . }}
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                {{ partial "svgs/menu.svg" (dict "height" 25 "width" 25) . }}
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                {{ $currentPage := . }}
+                {{ range .Site.Menus.main }}
+                <li>
+                    <a class="menu-link {{ if or ($currentPage.IsMenuCurrent "main" .)
+                        ($currentPage.HasMenuCurrent "main" .) }}active{{ end }}" href="{{ .URL }}">
+                        {{ .Name }}
+                    </a>
+                    {{ if .HasChildren }}
+                    <ul>
+                        {{ range .Children }}
+                        <li>
+                            <a class="menu-link {{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}"
+                                href="{{ .URL }}">
+                                {{ .Name }}
+                            </a>
+                        </li>
+                        {{ end }}
+                    </ul>
+                    {{ end }}
+                </li>
+                {{ end }}
+                <!-- Language Flags -->
+                {{ if .IsTranslated }}
+                    {{ $currentLang := .Lang }}
+                    <li class="lang-flag">
+                        {{ range .Page.AllTranslations }}
+                            {{ if eq .Lang "ko" }}
+                                <a href="{{ .Permalink }}" title="한국어" class="{{ if eq $currentLang "ko" }}active{{ end }}">
+                                    🇰🇷
+                                </a>
+                            {{ end }}
+                        {{ end }}
+                    </li>
+                    <li class="lang-flag">
+                        {{ range .Page.AllTranslations }}
+                            {{ if eq .Lang "en" }}
+                                <a href="{{ .Permalink }}" title="English" class="{{ if eq $currentLang "en" }}active{{ end }}">
+                                    🇺🇸
+                                </a>
+                            {{ end }}
+                        {{ end }}
+                    </li>
+                {{ end }}
+            </ul>
+            <a id="mode" href="#">
+                {{ partial "svgs/sun.svg" (dict "height" 21 "width" 21 "class" "mode-sunny" "title" "LIGHT") . }}
+                {{ partial "svgs/sun.svg" (dict "height" 21 "width" 21 "class" "mode-moon" "title" "DARK") . }}
+            </a>
+        </div>
+    </nav>
+</div>

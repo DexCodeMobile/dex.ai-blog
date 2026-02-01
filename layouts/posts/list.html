@@ -1,0 +1,42 @@
+{{ define "main" }}
+<div class="post-list">
+  <header>
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.description }}
+    <p class="description">{{ . }}</p>
+    {{ end }}
+  </header>
+
+  <div class="post-list-container">
+    {{ $currentLang := .Lang }}
+    
+    {{/* 현재 언어의 모든 일반 페이지를 날짜순으로 정렬하여 표시 */}}
+    {{ range where .Site.RegularPages "Lang" $currentLang }}
+      {{ if and (not .Draft) (ne .Section "posts") }}
+      <article class="post-item">
+        <div class="post-item-wrapper">
+          <h2 class="post-item-title">
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+          </h2>
+          <div class="post-item-meta">
+            <time class="post-item-date" datetime="{{ .Date.Format "2006-01-02" }}">
+              {{ .Date.Format (.Site.Params.dateFormat | default "Jan 2, 2006") }}
+            </time>
+            {{ with .Params.categories }}
+            <span class="post-item-category">
+              {{ range . }}
+              <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
+              {{ end }}
+            </span>
+            {{ end }}
+          </div>
+          {{ with .Description }}
+          <p class="post-item-description">{{ . }}</p>
+          {{ end }}
+        </div>
+      </article>
+      {{ end }}
+    {{ end }}
+  </div>
+</div>
+{{ end }}

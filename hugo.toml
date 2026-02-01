@@ -1,0 +1,93 @@
+baseURL = 'https://example.org/'
+title = "Dexter's AI Blog"
+theme = "BlogAwesome"
+defaultContentLanguage = "en"
+enableEmoji = true
+ignoreErrors = ["additional-script-loading-error"]
+
+[pagination]
+  pagerSize = 20
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+    ordered = false
+
+############################## English Language ################################
+[Languages.en]
+  languageName = "English"
+  languageCode = "en-us"
+  contentDir = "content/en"
+  weight = 1
+
+  [Languages.en.menu]
+  [[Languages.en.menu.main]]
+    name = 'Posts'
+    url = '/posts/'
+    weight = 20
+  [[Languages.en.menu.main]]
+    name = 'Categories'
+    url = '/categories/'
+    weight = 30
+  [[Languages.en.menu.main]]
+    name = 'Tags'
+    url = '/tags/'
+    weight = 40
+
+[Languages.en.params]
+  sitename = "Dexter's AI Blog"
+  defaultColor = "auto"
+  description = "AI coding, tools, and product development insights"
+  mainSections = ['ai-coding', 'ai-tools', 'ai-product', 'tutorials']
+  toc = true
+  tocOpen = false
+  goToTop = true
+  dateFormat = "2 Jan 2006"
+  rssFeedDescription = "summary"
+
+[Languages.en.params.author]
+  intro = "Dexter's AI Blog"
+  name = "Dexter Kim"
+  description = "Exploring AI development, tools, and product strategies"
+
+############################## Korean Language ################################
+[Languages.ko]
+  languageName = "한국어"
+  languageCode = "ko"
+  contentDir = "content/ko"
+  weight = 2
+
+  [Languages.ko.menu]
+  [[Languages.ko.menu.main]]
+    name = '포스트'
+    url = '/ko/posts/'
+    weight = 20
+  [[Languages.ko.menu.main]]
+    name = '카테고리'
+    url = '/ko/categories/'
+    weight = 30
+  [[Languages.ko.menu.main]]
+    name = '태그'
+    url = '/ko/tags/'
+    weight = 40
+
+[Languages.ko.params]
+  sitename = "Dexter의 AI 블로그"
+  defaultColor = "auto"
+  description = "AI 코딩, 도구 및 제품 개발에 대한 인사이트"
+  mainSections = ['ai-coding', 'ai-tools', 'ai-product', 'tutorials']
+  toc = true
+  tocOpen = false
+  goToTop = true
+  dateFormat = "2006년 1월 2일"
+  rssFeedDescription = "summary"
+
+[Languages.ko.params.author]
+  intro = "Dexter의 AI 블로그"
+  name = "김덱스터"
+  description = "AI 개발, 도구 및 제품 전략 탐구"

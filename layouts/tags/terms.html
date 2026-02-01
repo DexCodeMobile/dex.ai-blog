@@ -1,0 +1,24 @@
+{{- define "main" -}}
+<div class="wrapper list-page">
+    <header class="header">
+        <h1 class="header-title center">{{ .Title }}</h1>
+    </header>
+    <main class="page-content" aria-label="Content">
+        {{/* 모든 태그를 알파벳 순서로 표시 */}}
+        {{ $allTerms := .Data.Terms.Alphabetical }}
+        
+        {{ range $allTerms }}
+            <article class="post-item">
+                <div class="post-item-wrapper">
+                    <h2 class="post-item-title">
+                        <a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a>
+                    </h2>
+                    <div class="post-item-meta">
+                        <span class="post-count">{{ .Count }} {{ if eq .Count 1 }}post{{ else }}posts{{ end }}</span>
+                    </div>
+                </div>
+            </article>
+        {{ end }}
+    </main>
+</div>
+{{- end -}}
